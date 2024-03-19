@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# manages a process , starts stopes and restarts based on commands
 
 PID_FILE="/var/run/my_process.pid"
 
@@ -23,7 +24,7 @@ stop() {
     
     echo "Stopping manage_my_process..."
     PID=$(cat $PID_FILE)
-    kill $PID
+    kill "$PID"
     rm -f $PID_FILE
     echo "manage_my_process stopped."
 }
