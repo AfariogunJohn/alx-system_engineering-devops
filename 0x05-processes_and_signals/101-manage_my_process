@@ -9,11 +9,10 @@ start() {
         exit 1
     fi
     
-    echo "Starting manage_my_process..."
     ./manage_my_process &
     PID=$!
     echo $PID > $PID_FILE
-    echo "manage_my_process started."
+    echo "manage_my_process started"
 }
 
 stop() {
@@ -22,21 +21,20 @@ stop() {
         exit 1
     fi
     
-    echo "Stopping manage_my_process..."
     PID=$(cat $PID_FILE)
     kill "$PID"
     rm -f $PID_FILE
-    echo "manage_my_process stopped."
+    echo "manage_my_process stopped"
 }
 
 restart() {
     stop
     start
-    echo "manage_my_process restarted."
+    echo "manage_my_process restarted"
 }
 
 usage() {
-    echo "Usage: $0 {start|stop|restart}"
+    echo "Usage: manage_my_process {start|stop|restart}"
     exit 1
 }
 
